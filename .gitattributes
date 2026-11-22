@@ -1,0 +1,9 @@
+# CAD meshes/weights are data, not useful line-by-line code diffs.
+*.obj -diff -text -whitespace
+*.STL binary
+*.stl binary
+*.glb binary
+*.pt binary
+*.png binary
+# Preserve historical source exports byte-for-byte, including original whitespace.
+archive/** -whitespace

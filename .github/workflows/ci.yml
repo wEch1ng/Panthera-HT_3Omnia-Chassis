@@ -1,0 +1,19 @@
+name: package-and-simulation
+on: [push, pull_request]
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      MUJOCO_GL: egl
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      LP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: sudo apt-get update && sudo apt-get install -y libegl1 libgl1 libglfw3 libglib2.0-0
+      - run: uv sync --frozen --extra dev
+      - run: uv run ruff check src tests scripts examples --select F
+      - run: uv run python scripts/validate_assets.py
+      - run: uv run pytest -q
+      - run: uv build --wheel

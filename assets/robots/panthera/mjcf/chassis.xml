@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="Chassis-HT_Panthera-HT">
+  <compiler angle="radian" />
+  <asset>
+    <mesh name="base_link_collision" content_type="model/obj" file="meshes/chassis/base_link_collision.obj" />
+    <mesh name="base_link_0" content_type="model/obj" file="meshes/chassis/base_link_0.obj" />
+    <mesh name="left_wheel_collision" content_type="model/obj" file="meshes/chassis/left_wheel_collision.obj" />
+    <mesh name="left_wheel_0" content_type="model/obj" file="meshes/chassis/left_wheel_0.obj" />
+    <mesh name="right_wheel_collision" content_type="model/obj" file="meshes/chassis/right_wheel_collision.obj" />
+    <mesh name="right_wheel_0" content_type="model/obj" file="meshes/chassis/right_wheel_0.obj" />
+    <mesh name="back_wheel_collision" content_type="model/obj" file="meshes/chassis/back_wheel_collision.obj" />
+    <mesh name="back_wheel_0" content_type="model/obj" file="meshes/chassis/back_wheel_0.obj" />
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072" />
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300" />
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2" />
+  </asset>
+  <worldbody>
+    <body name="base_link">
+      <inertial pos="0.00065816 0 -0.0331765" quat="0.500768 0.500768 -0.499231 0.499231" mass="4.40105" diaginertia="0.071623 0.0405389 0.0402606" />
+      <geom quat="1 0 0 0" type="mesh" mesh="base_link_collision" group="3" contype="2" conaffinity="1" />
+      <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1" density="0" mesh="base_link_0" />
+      <body name="left_wheel" pos="0.105242 0.182294 -0.041">
+        <inertial pos="-0.0183704 -0.0318238 0" quat="0.396553 0.304537 0.527458 0.686871" mass="0.583278" diaginertia="0.00105362 0.000656495 0.000656425" />
+        <joint name="left_wheel_joint" axis="-0.5 -0.866025 0" damping="1.0" armature="0.01" />
+        <geom quat="1 0 0 0" type="mesh" mesh="left_wheel_collision" group="3" contype="2" conaffinity="1" />
+        <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1" density="0" mesh="left_wheel_0" />
+      </body>
+      <body name="right_wheel" pos="0.105242 -0.182294 -0.041">
+        <inertial pos="-0.018375 0.0318212 0" quat="0.637502 0.586161 0.338417 0.368077" mass="0.583278" diaginertia="0.00105361 0.00065649 0.000656431" />
+        <joint name="right_wheel_joint" axis="-0.5 0.866025 0" damping="1.0" armature="0.01" />
+        <geom quat="1 0 0 0" type="mesh" mesh="right_wheel_collision" group="3" contype="2" conaffinity="1" />
+        <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1" density="0" mesh="right_wheel_0" />
+      </body>
+      <body name="back_wheel" pos="-0.2105 0 -0.041">
+        <inertial pos="0.0367454 2.62e-06 0" quat="0.648004 0.761637 0 0" mass="0.583278" diaginertia="0.00105361 0.000656492 0.000656428" />
+        <joint name="back_wheel_joint" axis="1 0 0" damping="1.0" armature="0.01" />
+        <geom quat="1 0 0 0" type="mesh" mesh="back_wheel_collision" group="3" contype="2" conaffinity="1" />
+        <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1" density="0" mesh="back_wheel_0" />
+      </body>
+      <freejoint name="base_free_joint" />
+    </body>
+    <light pos="0 -1 2" dir="0 1 -2" directional="false" cutoff="40" castshadow="true" ambient="0.15 0.15 0.15" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" />
+    <light name="fill" pos="0 0 2" dir="0 0 -1" directional="true" castshadow="false" ambient="0.2 0.2 0.2" diffuse="0.35 0.35 0.35" specular="0 0 0" />
+    <geom name="floor" type="plane" size="0 0 0.05" pos="0 0 -0.1064285524251004" material="groundplane" contype="1" conaffinity="2" />
+  </worldbody>
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" />
+  <visual>
+    <quality shadowsize="4096" />
+    <map znear="0.03" zfar="50" shadowscale="1" />
+  </visual>
+  <actuator>
+    <motor name="left_wheel_joint_torque" joint="left_wheel_joint" gear="1" ctrllimited="true" ctrlrange="-10 10" />
+    <motor name="right_wheel_joint_torque" joint="right_wheel_joint" gear="1" ctrllimited="true" ctrlrange="-10 10" />
+    <motor name="back_wheel_joint_torque" joint="back_wheel_joint" gear="1" ctrllimited="true" ctrlrange="-10 10" />
+  </actuator>
+</mujoco>

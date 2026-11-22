@@ -1,0 +1,21 @@
+{
+  "task": "pingpong-arm",
+  "checkpoint": "bundled",
+  "iteration": 1500,
+  "results": [
+    {
+      "seed": 81000,
+      "seconds": 20.0,
+      "success": true,
+      "mean_error_mm": 3.2080813013846203,
+      "final_max_mm": 2.358217097592219
+    },
+    {
+      "seed": 81001,
+      "seconds": 20.0,
+      "success": true,
+      "mean_error_mm": 3.3531839705664037,
+      "final_max_mm": 2.4501713696083156
+    }
+  ]
+}

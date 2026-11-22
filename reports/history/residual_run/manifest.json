@@ -1,0 +1,14 @@
+{
+  "args": {
+    "iterations": 40,
+    "workers": 4,
+    "steps": 64,
+    "resume": false
+  },
+  "observation": "RGBD relative ball estimate and velocity, visibility/age, 9 motor position/velocity/torque, previous 9 actions",
+  "action": "3 wheel speed residuals and 6 joint position residuals",
+  "algorithm": "reference PPO / sensor-only actor and critic / sensor-only reward",
+  "dt": 0.03333333333333333,
+  "delay_frames": 2,
+  "source_sha256": "7fcfe4f7cbb32d5ad0524a57ed97a33c667dc210ed1b64f6ca34f35e94317dd5"
+}

@@ -1,0 +1,15 @@
+{
+  "arm_recovery": {
+    "file": "pingpong/arm_recovery.pt",
+    "source": "Panthera-HT_pingpong-balance/weights/d405_rgbd_recovery.pt",
+    "iteration": 1500,
+    "status": "fixed-base arm policy transferred to mobile base; not a mobile-base robustness claim",
+    "sha256": "b14faf009a90db9bb2ed5be01b181f12ea907a338acc30ca57ee8e2d4cd2d15b"
+  },
+  "residual_ppo": {
+    "file": "pingpong/residual_ppo.pt",
+    "iteration": 40,
+    "status": "experimental 9-action residual PPO; not demonstrably better than baseline",
+    "sha256": "36ce2609e3ff373745c1e7d0efda3374a13e3a7bc32719e1a835f8f514a92407"
+  }
+}

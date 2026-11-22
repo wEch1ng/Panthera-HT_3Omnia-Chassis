@@ -5,3 +5,12 @@ __pycache__/
 .DS_Store
 *.bak
 *.bak-*
+outputs/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+MUJOCO_LOG.TXT
+core
+core.*

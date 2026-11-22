@@ -1,0 +1,14 @@
+{
+  "visible_fraction": 1.0,
+  "seed": 1000,
+  "success": true,
+  "duration_s": 20.0,
+  "mean_mm": 1.7205155797730631,
+  "last_second_max_mm": 0.44239438107201445,
+  "base_travel_mm": 15.131638320227243,
+  "loss": 2.1629099608450777,
+  "motor_models": "5022 x3; reference arm",
+  "motor_feedback_shape": [
+    27
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "duration_s": 60.0,
+  "drop_time_s": null,
+  "joint_peak_to_peak_deg": [
+    0.000538052368095297,
+    0.9056245128122178,
+    0.8806674706633925,
+    0.8379629647687961,
+    0.000825804904232942,
+    0.4844729405457447
+  ],
+  "max_error_mm": 33.19766570396673,
+  "visible_fraction": 1.0,
+  "controller": "four_gain_visual_feedback_not_PPO",
+  "model": "migrated_reference_URDF",
+  "seed": 1000
+}
